@@ -1,56 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ar">
 <head>
-  <!-- 
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقع الحب</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+    }
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="https://glitch.com/favicon.ico" />
+    #loveText {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-  <!--
-      This is the page head - it contains info the browser uses
-      Like the title, which appears on the browser tab but not inside the page
-      Further down you'll see the content that displays in the page
-    -->
-  <title>Hello World!</title>
+    #nextBtn {
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: white;
+      border: 2px solid red;
+      border-radius: 10px;
+    }
 
-  <!-- The website stylesheet -->
-  <link rel="stylesheet" href="/style.css" />
-
-  <!-- The website JavaScript file -->
-  <script src="/script.js" defer></script>
+    #imageContainer img {
+      max-width: 80%;
+      margin-top: 20px;
+      display: none;
+      border-radius: 15px;
+    }
+  </style>
 </head>
-
 <body>
-  <!--
-      The body includes the content you see in the page
-      Each element is defined using tags, like this <div></div>
-      The attributes like class="wrapper" let us style elements in the CSS
-    -->
-  <div class="wrapper">
-    <div class="content" role="main">
-      <h1 class="title">Oh hi website!</h1>
-      <img src="/cool-website.svg" class="illustration" alt="cool website" />
-      <div class="instructions">
-        <p>
-          Fork <a href="https://github.com/glitchdotcom/website-to-compute">this project</a> and open it in a GitHub Codespace.
-        </p>
-        <p> Follow the steps in the README to deploy your new website to Fastly in a few steps!
-        </p>
 
-      </div>
+  <!-- اكتب هنا الرسالة اللي انت عايزها -->
+  <p id="loveText">اكتب هنا الرسالة اللي انت عايزها ❤️</p>
+  <button id="nextBtn">التالي</button>
 
-      <footer class="footer">
-        <div>
-          <a class="remix" href="https://github.com/glitchdotcom/website-to-compute">🚧 Get your own site</a>
-        </div>
-      </footer>
-    </div>
+  <div id="imageContainer">
+    <img id="img1" src="https://via.placeholder.com/250x250.png?text=صورة1">
+    <img id="img2" src="https://via.placeholder.com/250x250.png?text=صورة2">
+    <img id="img3" src="https://via.placeholder.com/250x250.png?text=صورة3">
   </div>
-</body>
 
+  <script>
+    // استبدل الروابط بروابط صوركم بعد رفعها على imgbb أو أي موقع رفع صور
+    const images = [
+      "https://via.placeholder.com/250x250.png?text=صورة1",
+      "https://via.placeholder.com/250x250.png?text=صورة2",
+      "https://via.placeholder.com/250x250.png?text=صورة3"
+    ];
+
+    let current = 0;
+    const btn = document.getElementById("nextBtn");
+    const imgElements = document.querySelectorAll("#imageContainer img");
+
+    btn.addEventListener("click", () => {
+      if(current < images.length) {
+        imgElements[current].style.display = "block"; // تظهر الصورة واحدة واحدة
+        current++;
+      } else {
+        alert("خلصت الصور ❤️");
+      }
+    });
+  </script>
+
+</body>
 </html>
